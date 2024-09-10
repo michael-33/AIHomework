@@ -1,6 +1,3 @@
-from src.hw_04_09.script import third_question
-
-
 def first_question(amount_of_slices: int, amount_of_friends: int = 4):
 	slices_per_friend = amount_of_slices // amount_of_friends
 	slices_left = amount_of_slices % amount_of_friends
