@@ -35,6 +35,28 @@ def two_and_a_half_question():
 	average_temp = sum(temperatures) / len(temperatures)
 	print("average temp", average_temp)
 
+
+def three_question_one(num: int):
+	for i in range(1, num + 1):
+		for j in range(1, i + 1):
+			print(j, end="")
+		print()
+
+	for i in range(num - 1, 0, -1):
+		for j in range(1, i + 1):
+			print(j, end="")
+		print()
+
+
+def three_question_two(num: int):
+	for i in range(1, num + 1, 2):
+		line_str = ""
+		for j in range(1, i + 1):
+			line_str += "*"
+		print(line_str.center(num))
+
 # first_question("1", "2", "3", "4");
 # second_question()
 # two_and_a_half_question()
+# three_question_one(5)
+# three_question_two(6)
