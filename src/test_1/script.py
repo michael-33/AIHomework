@@ -1,4 +1,6 @@
 # conditions
+import random
+
 
 def conditions_1():
 	first_num: int = int(input("enter first number"))
@@ -124,6 +126,21 @@ def loops_2():
 		print(i, end=" ")
 
 
+def loops_3():
+	num: int = int(input("enter number"))
+	top = num + 1 if num % 2 == 0 else num
+	for i in range(0, top, 2):
+		print(i, end=" ")
+
+
+def loops_4():
+	max_num: int = int(input("enter first number"))
+	den_num: int = int(input("enter second number"))
+	for i in range(max_num + 1):
+		if i % den_num == 0:
+			print(i, end=" ")
+
+
 # data process
 
 def data_process_1():
@@ -172,6 +189,63 @@ def data_process_3():
 	print("height_index", height_index)
 
 
+def data_process_4():
+	first_num: int = int(input("enter first number"))
+	second_num: int = int(input("enter second number"))
+	multiplication: int = 0
+	for _ in range(first_num):
+		multiplication += second_num
+	print("multiplication", multiplication)
+
+
+def data_process_5():
+	first_num: int = int(input("enter first number"))
+	second_num: int = int(input("enter second number"))
+	power: int = 1
+	for _ in range(first_num):
+		power *= second_num
+	print("power", power)
+
+
+def data_process_6():
+	num: int = int(input("enter number"))
+	digit: int = int(input("enter digit"))
+	num_digits: list[int] = []
+	while True:
+		if num < 10:
+			num_digits.append(num)
+			break
+		else:
+			right_digit = num % 10
+			num_digits.append(right_digit)
+			num //= 10
+	print(digit in num_digits)
+
+
+def data_process_7():
+	first_num: int = int(input("enter first number"))
+	second_num: int = int(input("enter second number"))
+	highest_divider = 1
+	top = first_num if first_num < second_num else second_num
+	for i in range(1, top + 1):
+		if first_num % i == 0 and second_num % i == 0:
+			highest_divider = i
+	print("highest_divider", highest_divider)
+
+
+def data_process_8():
+	num: int = int(input("enter number"))
+	is_prime: bool = True
+	if num <= 1:
+		is_prime = False
+	else:
+		for i in range(2, int(num ** 0.5) + 1):
+			if num % i == 0:
+				is_prime = False
+				break
+	print("is_prime", is_prime)
+
+
 # complex loops
 
 def complex_loops_1():
@@ -198,3 +272,33 @@ def complex_loops_1():
 	print("max_temperature", max_temperature)
 	print("min_temperature", min_temperature)
 	print("average", average)
+
+
+def complex_loops_2():
+	for_states_indexes: list[int] = []
+	against_states_indexes: list[int] = []
+	avoided_states_indexes: list[int] = []
+	vote_subject = input("enter vote subject")
+	for i in range(1, 45):
+		try:
+			vote = int(input("enter vote between 1 to 4"))
+			match vote:
+				case 1:
+					for_states_indexes.append(i)
+				case 2:
+					against_states_indexes.append(i)
+				case 3:
+					avoided_states_indexes.append(i)
+				case 4:
+					print(f"state number {i} vetoed the vote")
+					break
+				case _:
+					continue
+		except:
+			print("invalid input, enter only numbers")
+	print("vote_subject", vote_subject)
+	print("amount of votes for", len(for_states_indexes))
+	print("amount of votes against", len(against_states_indexes))
+	print("amount of votes avoided", len(avoided_states_indexes))
+	print("first country for", for_states_indexes[0] if len(for_states_indexes) > 0 else None)
+	print("last country against", against_states_indexes[-1] if len(against_states_indexes) > 0 else None)
