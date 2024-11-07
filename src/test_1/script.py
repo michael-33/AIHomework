@@ -1,6 +1,4 @@
 # conditions
-import random
-
 
 def conditions_1():
 	first_num: int = int(input("enter first number"))
